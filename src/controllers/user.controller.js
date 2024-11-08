@@ -15,4 +15,17 @@ const handleLoginUser = asyncHandler(async (req, res) => {
   res.status(200).json(new ApiResponse(200, user[0], "User login success"));
 });
 
-export {handleLoginUser};
+const handleGetUser = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+
+  const user = await User.findById(id);
+
+  if (!user) {
+    throw new ApiError(404, "", "User not found");
+  }
+
+  res.status(200).json(new ApiResponse(200, user, "User login success"));
+});
+
+
+export {handleLoginUser, handleGetUser};
