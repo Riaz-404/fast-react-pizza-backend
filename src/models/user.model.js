@@ -5,7 +5,9 @@ const userSchema = new mongoose.Schema({
   phone: String,
   address: String,
   orderList: [{
-    type: String,
+    orderId: String,
+    estimatedDelivery: Date,
+    createdAt: Date,
   }],
   cart: {
     type: mongoose.Schema.Types.ObjectId,

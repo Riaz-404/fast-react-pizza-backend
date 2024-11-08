@@ -8,7 +8,7 @@ const handleCreateOrder = asyncHandler(async (req, res) => {
   const payload = req.body;
 
   const checkUser = await User.find({phone: payload.phone});
-  let user = checkUser;
+  let user = checkUser[0];
 
   if (checkUser.length < 1) {
     user = await User.create({
@@ -18,13 +18,17 @@ const handleCreateOrder = asyncHandler(async (req, res) => {
     });
   }
 
-  const order = await Order.create({...payload, customerId: user[0]._id});
+  const order = await Order.create({...payload, customerId: user._id});
 
   if (!order) throw new ApiError(500, "", "Order creation failed");
 
   const updateOrderList = await User.findByIdAndUpdate(order.customerId, {
     $push: {
-      orderList: order.orderId,
+      orderList: {
+        orderId: order.orderId,
+        estimatedDelivery: order.estimatedDelivery,
+        createdAt: order.createdAt,
+      },
     },
   });
 
