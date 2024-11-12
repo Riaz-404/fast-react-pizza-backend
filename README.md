@@ -1,6 +1,6 @@
 # fast-react-pizza-backend
 
-<img src="./public/er-diagram.png">
+<img alt="er-diagram" src="./public/er-diagram.png">
 
 ## API DOCUMENTATION
 
@@ -167,35 +167,35 @@ The API returns a JSON response with the following schema:
 
 ``` json
 {
-    "statusCode": number,
+    "statusCode": "number",
     "data": {
-        "_id": string,
-        "customer": string,
-        "customerId": string,
-        "address": string,
+        "_id": "string",
+        "customer": "string",
+        "customerId": "string",
+        "address": "string",
         "cart": [
             {
-                "pizzaId": string,
-                "name": string,
-                "quantity": number,
-                "unitPrice": number,
-                "totalPrice": number,
-                "_id": string
+                "pizzaId": "string",
+                "name": "string",
+                "quantity": "number",
+                "unitPrice": "number",
+                "totalPrice": "number",
+                "_id": "string"
             }
         ],
-        "position": string,
-        "priority": boolean,
-        "createdAt": string,
-        "updatedAt": string,
-        "estimatedDelivery": string,
-        "orderId": string,
-        "orderPrice": number,
-        "priorityPrice": number,
-        "status": string,
-        "__v": number
+        "position": "string",
+        "priority": "boolean",
+        "createdAt": "string",
+        "updatedAt": "string",
+        "estimatedDelivery": "string",
+        "orderId": "string",
+        "orderPrice": "number",
+        "priorityPrice": "number",
+        "status": "string",
+        "__v": "number"
     },
-    "message": string,
-    "success": boolean
+    "message": "string",
+    "success": "boolean"
 }
 
  ```
@@ -283,26 +283,26 @@ following schema:
 
 ``` json
 {
-  "statusCode": number,
+  "statusCode": "number",
   "data": {
-    "_id": string,
-    "name": string,
-    "phone": string,
-    "address": string,
+    "_id": "string",
+    "name": "string",
+    "phone": "string",
+    "address": "string",
     "orderList": [
       {
-        "orderId": string,
-        "estimatedDelivery": string,
-        "createdAt": string,
-        "_id": string
+        "orderId": "string",
+        "estimatedDelivery": "string",
+        "createdAt": "string",
+        "_id": "string"
       }
     ],
-    "createdAt": string,
-    "updatedAt": string,
-    "__v": number
+    "createdAt": "string",
+    "updatedAt": "string",
+    "__v": "number"
   },
-  "message": string,
-  "success": boolean
+  "message": "string",
+  "success": "boolean"
 }
 
  ```
