@@ -25,9 +25,13 @@ const handleCreateOrder = asyncHandler(async (req, res) => {
   const updateOrderList = await User.findByIdAndUpdate(order.customerId, {
     $push: {
       orderList: {
-        orderId: order.orderId,
-        estimatedDelivery: order.estimatedDelivery,
-        createdAt: order.createdAt,
+        $each: [{
+          orderId: order.orderId,
+          estimatedDelivery: order.estimatedDelivery,
+          createdAt: order.createdAt,
+        },
+        ],
+        $position: 0,
       },
     },
   });
